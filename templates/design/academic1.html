@@ -1,0 +1,358 @@
+
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+	<title>Solve x</title>
+	<link rel="icon"  href="{% static 'images/resources/t.png' %}"sizes="16x16" alt="">
+    
+    
+    <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/so.css' %}">
+
+</head>
+<body style="background:rgb(244, 248, 244)">
+
+
+<!--<div class="se-pre-con"></div>-->
+<div class="theme-layout">
+	
+	<div class="responsive-header">
+		<div class="mh-head first Sticky">
+			
+			<span class="mh-text">
+				<a href="newsfeed.html" title=""><h3>Solve x</h3></a>
+			</span>
+			
+		</div>
+
+<!--search bar -->
+		<div class="mh-head second">
+		
+		</div>
+
+		
+
+
+
+
+
+
+	</div><!-- responsive header -->
+	
+	<div class="topbar stick">
+		<div class="logo">
+			<a title="" href="newsfeed.html"><h1><b style="color:rgb(0, 140, 255) ;">S</b><b style="color:rgb(49, 177, 49) ;">o</b><b style="color: rgb(0, 140, 255);">l</b><b style="color: rgb(49, 177, 49);">v</b><b style="color:rgb(0, 140, 255) ;">e</b><b style="color: rgb(49, 177, 49);">x</b></b></h1></a>
+			
+		</div>
+		
+			
+		<div class="top-area">
+			<div class="top-search">
+				
+			</div>
+			
+		<div class="user-img">
+				<a   class="" >
+				<span class="status f-online"></span>
+				<div class="user-setting">
+					
+					<a title=""><i class="ti-user"></i><i style="color:rgb(49, 177, 49) "><i style="color: rgb(39, 182, 230) ">{{ user.username }}</i>Online</i></a>
+					
+				
+				</div>
+			</div>
+			
+		</div>
+	</div><!-- topbar -->
+	
+
+
+
+
+
+
+<!-- right sidebar menu -->
+		
+
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn"><i class="fa fa-chevron-down"></i></button>
+  <div class="dropdown-content" style="left:0;">
+  		{% if user.profile.profile_image %}
+     <p><a href="{% url 'profile' %}" title="Profile" data-toggle="tooltip" data-placement="right"><i class=""><img style=" height: 70px;width: 500px"src="{{ user.profile.profile_image.url }}" alt="{{ user.username}}"></i></a></p>
+   {% endif %}
+
+  <a href="{% url 'postlist'  %}" title="Home" data-toggle="tooltip" data-placement="right"><h4><i class="ti-home"></i></h4></a>
+
+  <a href="{% url 'postform' %}" title="Post" data-toggle="tooltip" data-placement="right"><h4><i class="fa fa-edit"></i></h4></a>
+
+
+  <a href="{% url 'twoA' %}" title="Solution" data-toggle="tooltip" data-placement="right"><h4><i class="ti-eye"></i></h4></a>
+
+
+ 
+				
+  <h7 style="color: black">LogOut <h4><a href="{% url 'landing_page' %}" class="ti-power-off" style="color: blue"><i></i> </a></h4></h7>
+  
+  
+  </div>
+</div>
+
+
+  
+  </div>
+</div>
+
+
+
+	<section>
+		<div class="gap100">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="prod-detail">
+							<div class="row">
+							
+								<div class="col-lg-6">
+									<div class="prod-avatar">
+										<ul class="slider-for-gold">
+
+											
+											 <li><img src="{{ x.image.url }}" alt=""></li>
+											 <li><img src="{{ x.image1.url }}"alt=""></li>
+											 <li><img src="{{ x.image2.url }}"alt=""></li>
+											 <li><img src="{{ x.image3.url }}" alt=""></li>
+										</ul>
+										<ul class="slider-nav-gold">
+											<li><img src="{{ x.image.url }}"alt=""></li>
+											<li><img src="{{ x.image1.url }}" alt=""></li>
+											<li><img src="{{ x.image2.url }}" alt=""></li>
+											<li><img src="{{ x.image3.url }}" alt=""></li>
+										</ul>
+									</div>	
+								</div>
+								<div class="col-lg-6">
+    								<div class="full-postmeta">
+										
+    									<span class="prices style2">
+											<ins>
+												<span class="woocommerce-Price-amount amount">
+													<span class="woocommerce-Price-currencySymbol">$</span>{{x.new_price}}
+												</span>
+											</ins>
+											<del>
+												<span class="woocommerce-Price-amount amount">
+													<span class="woocommerce-Price-currencySymbol">$</span>{{x.old_price}}
+												</span>
+											</del>                                             
+                                    	</span>
+                                    	
+                                    	<h4>{{x.title}}</h4>
+										<i>{{x.aim}}</i>
+                                    	<p>Solvex, Lets Solve The Problems Together</p>
+   										<a class="shopnow" title="" href="#">Info</a>
+										<div class="delivery-guide">
+											<a href="#" title="">Size Guide</a>
+											<a href="#" title="">Delivery & Return</a>
+										</div>
+										
+										<div class="prod categories">
+											<span class="cat-heading">Category:
+												<a style="color: black">{{x.category}}</a>
+												
+											</span>
+										</div>
+										<div class="prod tags">
+											<span class="cat-heading">User:
+												<a style="color: black">{{x.user}}</a>
+												
+											</span>
+										</div>
+									
+										<p>
+											<a class="shopnow" title="" href="#">Click Below To Buy Now</a>
+										</p>
+
+										<p>
+											<i><b><a href="{{x.visit}}" style="color: rgb(79, 236, 79)">{{x.visit}}</a></b></i>
+										</p>
+
+									
+
+
+										<div class="extras">
+											<div>
+										
+							
+									</ul>
+											</div>
+									<figure>
+											  <video controls="autoplay" style=" width: 100% ; height: auto;">
+
+										    	<source src="{{ x.video.url }}">
+										    	
+										    </video>
+										</figure>
+							</div><!-- play video btn -->
+    								</div>
+    							</div>
+							</div>
+							
+							
+								<div class="tab-section">
+									<ul class="nav nav-tabs single-btn">
+										 <li class="nav-item"><a class="active" href="#desc" data-toggle="tab">Description</a></li>
+										 <li class="nav-item"><a class="" href="#additional" data-toggle="tab">Additional Information</a></li>
+							
+									</ul>
+
+									<!-- Tab panes -->
+									<div class="tab-content">
+									  <div class="tab-pane active fade show " id="desc" >
+										<div class="more-pix">
+											<h2 class="main-title text-center">{{x.title}}</h2>
+											<div class="row">
+												<div class="offset-md-1 col-lg-10">
+													<p class="prod-info text-center">
+													{{x.description}}
+													</p>
+								
+												</div>
+											</div>	
+										</div>
+									  </div>
+									  <div class="tab-pane fade" id="additional" >
+										<div class="aditional-inf">
+										  	<h2 class="main-title">Shoes for Men Black</h2>
+											<p class="adition-info">
+												Know More About The Product
+											</p>
+											<table class="table table-responsive adition">
+												<tbody>
+													<tr>
+														<td class="bold">Out Of:</td>
+														<td>{{x.out_of}}</td>
+													</tr>
+													<tr>
+														<td class="bold">Weight:</td>
+														<td>{{x.weight}} g</td>
+													</tr>
+													<tr>
+														<td class="bold">Color:</td>
+														<td>{{x.color}}</td>
+													</tr>
+													<tr>
+														<td class="bold">Size:</td>
+														<td>{{x.size}}</td>
+													</tr>
+												</tbody>
+											</table>
+										  </div>
+									  </div>
+								  
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- shop detail meta -->
+
+
+
+
+
+	
+
+
+
+</div>.
+
+
+
+<div class="side-panel">
+		<center><h4 style="color: rgb(49, 177, 49)">LogOut</h4></center>
+		<center><a href="{% url 'logout' %}" ><i></i><button class="btn btn-primary">logout</button></a></center>
+
+</div><!-- side panel -->	
+
+
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4">
+						<div class="widget">
+							<div class="foot-logo">
+								<div class="logo">
+								<a href="index-2.html" title=""><img  style="height: 60px ;border-radius:1000px" src="{% static 'images/resources/t.png' %}" alt=""></a>
+								</div>	
+								<p>
+									Ashraf Kisoro Lutaaya took this simple idea and built it into a Problem solver plateform inorder to make you happy life
+								</p>
+							</div>
+							<ul class="location">
+								<li>
+									<i class="ti-email"></i>
+									<p>solvex@gmail.com</p>
+								</li>
+							
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>follow</h4></div>
+						<ul class="list-style">
+							<li><i class="fa fa-facebook-square"></i> <a  title=""> #solvex</a></li>
+							<li><i class="fa fa-twitter-square"></i><a  title="">#solvex</a></li>
+							<li><i class="fa fa-instagram"></i><a  title="">#solvex</a></li>
+							<li><i class="fa fa-google-plus-square"></i> <a >solvex@gmail.com</a></li>
+							<li><i class="fa fa-pinterest-square"></i> <a  title="">#solvex</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>Navigate</h4></div>
+						<ul class="list-style">
+							<li><a href="{% url 'about_us' %}"  title="">about us</a></li>
+							
+				
+						</ul>
+					</div>
+				</div>
+					<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>useful links</h4></div>
+						<ul class="list-style">
+					
+							<li><a href="{% url 'usage' %}"  title="">Support & Help</a></li>
+							
+						</ul>
+					</div>
+				</div>
+				
+				</div>
+			</div>
+		</footer>
+
+	<script src="{% static 'js/main.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/map-init.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+
+</body>	
+</html>
+
+

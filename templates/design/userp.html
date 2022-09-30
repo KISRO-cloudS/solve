@@ -1,0 +1,480 @@
+ 
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Solve x</title>
+    <link rel="icon"  href="{% static 'images/resources/t.png' %}"sizes="16x16" alt="">
+    
+    
+    <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/so.css' %}">
+
+</head>
+<body style="background:rgb(244, 248, 244)">
+
+
+<!--<div class="se-pre-con"></div>-->
+<div class="theme-layout">
+    
+    <div class="responsive-header">
+        <div class="mh-head first Sticky">
+            
+            <span class="mh-text">
+                <a href="newsfeed.html" title=""><h3>Solve x</h3></a>
+            </span>
+            
+        </div>
+
+
+        <div class="mh-head second">
+         
+        </div>
+
+        
+
+
+
+
+
+
+    </div><!-- responsive header -->
+    
+    <div class="topbar stick">
+        <div class="logo">
+            <a title="" href="newsfeed.html"><h1><b style="color:rgb(0, 140, 255) ;">S</b><b style="color:rgb(49, 177, 49) ;">o</b><b style="color: rgb(0, 140, 255);">l</b><b style="color: rgb(49, 177, 49);">v</b><b style="color:rgb(0, 140, 255) ;">e</b><b style="color: rgb(49, 177, 49);">x</b></b></h1></a>
+            
+        </div>
+        
+        <div class="top-area">
+            <div class="top-search">
+             
+            </div>
+            
+        <div class="user-img">
+                <a   class="" >
+                <span class="status f-online"></span>
+                <div class="user-setting">
+                    
+                    <a title=""><i class="ti-user"></i><i style="color:rgb(49, 177, 49) "><i style="color: rgb(39, 182, 230) ">{{ user.username }}</i>Online</i></a>
+                    
+                
+                </div>
+            </div>
+            
+        </div>
+    </div><!-- topbar -->
+    
+
+
+
+
+
+
+<!-- right sidebar menu -->
+        
+
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn"><i class="fa fa-chevron-down"></i></button>
+  <div class="dropdown-content" style="left:0;">
+        {% if user.profile.profile_image %}
+   <p><a href="{% url 'profile' %}" title="Profile" data-toggle="tooltip" data-placement="right"><i class=""><img style=" height: 70px;width: 500px"src="{{ user.profile.profile_image.url }}" alt="{{ user.username}}"></i></a></p>
+   {% endif %}
+
+ <a href="{% url 'postlist'  %}" title="Home" data-toggle="tooltip" data-placement="right"><h4><i class="ti-home"></i></h4></a>
+
+  <a href="{% url 'postform' %}" title="Post" data-toggle="tooltip" data-placement="right"><h4><i class="fa fa-edit"></i></h4></a>
+
+
+  <a href="{% url 'twoA' %}" title="Solution" data-toggle="tooltip" data-placement="right"><h4><i class="ti-eye"></i></h4></a>
+
+
+
+ 
+                
+  <h7 style="color: black">LogOut <h4><a href="{% url 'landing_page' %}" class="ti-power-off" style="color: blue"><i></i> </a></h4></h7>
+  
+  
+  </div>
+</div>
+
+
+  
+  </div>
+</div>
+
+
+<section>
+        <div class="gap2 gray-bg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row merged20" id="page-contents">
+                            <div class="col-lg-3">
+                                <aside class="sidebar static left">
+                                </aside>
+                            </div><!-- sidebar -->
+<!-- centerl meta -->
+
+
+                            <div class="col-lg-6">
+                                <div class="central-meta">
+                                    <div class="new-postbox">
+
+                                        
+<h1 style="color: whitesmoke">{{current_user}}  profile  </h1>
+
+{% for x in user_profile %}
+<p><img style=" height: 400px;width: 800px"src="{{ x.user.profile.profile_image.url }}" alt="{{ user.username}}"></p>
+
+<h1 style="color: grey">&nbsp;{{current_user}} </h1>
+
+
+<p> &nbsp;&nbsp;&nbsp;<bdi>Solver_of :</bdi> <bdi style="color:rgb(247, 119, 119)">{{x.solve_of}}</bdi></p>
+
+
+<p>&nbsp;&nbsp;&nbsp;<bdi>Email : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.user.email}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Country : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.country}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Age : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.age}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Place_Of_Birth : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.place_of_birth}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Sex : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.sex}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Marital Status : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.marital_status}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Religion : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.religion}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Occupation : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.occupation}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Mobile No. : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.mobile_number}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Highest_level_of_Education : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.highest_level_of_education}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Profession : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.profession}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi> Hobbies : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.hobbies}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Street : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.street}}</bdi> </p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Talent : </bdi><bdi style="color:rgb(143, 143, 143)">{{x.talent}}</bdi> </p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;<bdi>My_Slug : </bdi><m style="color: rgb(88, 241, 88)"># {{x.my_slug}}</m></p>
+<p>&nbsp;&nbsp;&nbsp;<bdi>Follow_Me_On : </bdi><m style="color: rgb(66, 182, 218)">{{x.follow_me_on}}</m></p>
+
+
+
+
+
+
+{% endfor %}
+
+
+
+
+
+                                
+   {% for post in var %}
+
+                                
+                                <div class="central-meta">
+
+                                    <div class="user-post">
+                                        <div class="friend-info">
+                                            
+                                            <div class="friend-name">
+
+
+                                                
+                                                
+
+
+                                                
+                                                <a href="{% url 'userp' username=post.author %}"> <br><img style="border-radius:1000px; height: 50px;width: 50px"src="{{post.author.profile.profile_image.url}}"  alt=""></br></a> <span> <h2 class="account-heading">{{post.author}}</h2></span><span>{{post.created_on}}</span>   
+                                            </div>
+
+                                            
+
+
+                                            <div class="coment-area">
+                                        <ul class="we-comet">
+                                            
+                                        </ul>
+                                    </div>
+                                            <div class="description">
+
+                                            
+                                        <div class="description">
+
+
+                    
+                                                <p><a>&nbsp;&nbsp;problem: &nbsp;&nbsp;  </a>{{ post.problem }}</p>
+                                                
+                                                
+                                                <h6><span>&nbsp;&nbsp;{{post.title}}</span></h6>
+                                                <p><a>&nbsp;&nbsp;Issue:</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{post.A_brief_Discription|linebreaksbr}}</p>
+                                                
+                                                 
+
+                                             
+
+                                            </div>
+                                            <div class="post-meta">
+                                        <figure>
+
+
+                                        {% if post.clip_type_html == "image" %}
+                                        <figure>
+                                            <img src="{{ post.clip.url }}" alt="img" style="  width: 900px ; height: 700px;" >
+                                        </figure>
+                                        
+                                            
+                                        
+                                            {% elif post.clip_type_html == "video" %}
+                                        <figure>
+                                              <video controls style=" width: 100% ; height: auto;">
+
+                                                <source src="{{ post.clip.url }}">
+                                                
+                                            </video>
+                                        </figure>
+                                          
+                                        
+                                            
+                                                {% endif %}
+
+                                                </figure>
+                                                <div class="we-video-info">
+                                                    <ul>
+
+                                                    
+
+
+                                                        <li>    
+
+
+                                                        
+
+      
+
+    <form action="{% url 'like' post.pk %}" method="post" name="like" id="likeform">
+        {% csrf_token %}
+        <button type='submit' name='like' value="{{post.pk}}" class="btn btn-outline-info  btn-sm" ><h4><i class="fa fa-heart" style="color:red  background-color:grey" > Sorry </c></i></h4></button>
+        <i style="color: grey">{{post.total_likes}}</i>
+    </form>
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+                                                                
+    
+                                                            
+
+
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+
+
+                                                          <form action="{% url 'comment' post.pk %}" method="post" name="like" id="likeform">
+        {% csrf_token %}
+        <button type='submit' name='like' value="{{ post.pk }}" class="btn btn-outline-info  btn-sm" ><h4><i class="fa fa-ambulance" style="color:red  background-color:grey" > Help</c></i></h4></button>
+        
+    </form>
+
+
+
+                                                            
+                                                        
+                                                            
+                                                    
+
+
+
+                                                            
+                                                        </li>
+
+                                                        <li>
+                                                        <li>
+                                                            
+                                                        </li>
+                                                         
+       
+        
+        
+    
+                                                        </li>
+                                                    
+                                                                                
+                            <td>
+                                
+                                
+
+
+                                
+                                                    </ul>
+                                                    
+
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                
+                                </div><!-- add post new box -->
+
+
+                                
+                                
+                                
+
+
+
+
+
+
+            
+
+                            </div>
+
+
+                              {% endfor %}
+
+
+
+
+
+
+      
+        </div>
+      </div>
+      <!-- FORM HERE -->
+  
+    </div>
+                                    
+                                    </div>
+
+
+                                    
+  
+
+
+                                    
+                                </div>
+                                
+                                <!-- add post new box-->
+                            </div><!-- centerl meta -->
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </section>
+    
+
+
+
+</div>.
+
+
+
+<div class="side-panel">
+        <center><h4 style="color: rgb(49, 177, 49)">LogOut</h4></center>
+        <center><a href="{% url 'logout' %}" ><i></i><button class="btn btn-primary">logout</button></a></center>
+
+</div><!-- side panel -->   
+
+
+
+
+            <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="widget">
+                            <div class="foot-logo">
+                                <div class="logo">
+                                <a href="index-2.html" title=""><img  style="height: 60px ;border-radius:1000px" src="{% static 'images/resources/t.png' %}" alt=""></a>
+                                </div>  
+                                <p>
+                                    Ashraf Kisoro Lutaaya took this simple idea and built it into a Problem solver plateform inorder to make you happy life
+                                </p>
+                            </div>
+                            <ul class="location">
+                                <li>
+                                    <i class="ti-email"></i>
+                                    <p>solvex@gmail.com</p>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4">
+                    <div class="widget">
+                        <div class="widget-title"><h4>follow</h4></div>
+                        <ul class="list-style">
+                            <li><i class="fa fa-facebook-square"></i> <a  title=""> #solvex</a></li>
+                            <li><i class="fa fa-twitter-square"></i><a  title="">#solvex</a></li>
+                            <li><i class="fa fa-instagram"></i><a  title="">#solvex</a></li>
+                            <li><i class="fa fa-google-plus-square"></i> <a >solvex@gmail.com</a></li>
+                            <li><i class="fa fa-pinterest-square"></i> <a  title="">#solvex</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <div class="widget">
+                        <div class="widget-title"><h4>Navigate</h4></div>
+                        <ul class="list-style">
+                            <li><a href="{% url 'about_us' %}"  title="">about us</a></li>
+                           
+                
+                        </ul>
+                    </div>
+                </div>
+                    <div class="col-lg-2 col-md-4">
+                    <div class="widget">
+                        <div class="widget-title"><h4>useful links</h4></div>
+                        <ul class="list-style">
+                    
+                            <li><a href="{% url 'usage' %}"  title="">Support & Help</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                    
+                </div>
+            </div>
+        </footer>
+
+    <script src="{% static 'js/main.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/map-init.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+
+</body> 
+</html>
+
+
+
+
+
+  
